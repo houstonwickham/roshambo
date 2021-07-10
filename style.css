@@ -1,0 +1,25 @@
+body {
+    font-family: Oswald;
+}
+.container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+button {
+    border: none;
+    color: #ffffff;
+    background-color: #a32b29;
+    height: 60px;
+    width: 200px;
+    border-radius: 30px;
+    font-size: 22px;
+    margin: 20px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+button:active {
+    background-color: #ffffff;
+    color:#a32b29
+}

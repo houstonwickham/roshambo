@@ -8,29 +8,73 @@ function computerPlay() {
         return "scissors"
 }
 let result;
+let round = 1;
+let playerScore = 0;
+let computerScore = 0;
 
-function game() {
-    let playerScore = 0;
-    let computerScore = 0;
-    for (i = 0; i < 5; i++) {
-        let playerSelection = prompt("Choose Your Weapon")
-        let computerSelection = computerPlay();
-        console.log("Round " + (i + 1) + "  |  " + playerScore + " - " + computerScore)
-        console.log(playRound(playerSelection, computerSelection));
-        if (result === "win") {
-            playerScore++;
-        } else if (result === "loss") {
-            computerScore++;
+function game(e) {
+    let computerSelection = computerPlay();
+    document.querySelector("#result").textContent = playRound(e.target.id, computerSelection);
+    document.querySelector("#round").textContent = "Round " + round;
+    if (result === "win") {
+        playerScore++;
+    } else if (result === "loss") {
+        computerScore++;
+    }
+    document.querySelector("#score").textContent = playerScore + " - " + computerScore;
+    if (playerScore >= 5) {
+        for (let i = 0; i < document.querySelectorAll("button").length; i++) {
+            document.querySelectorAll("button")[i].style.display = "none";
         }
+        document.querySelector("#reset").style.display = "block";
+        for (let i = 0; i < document.querySelectorAll("h3").length; i++) {
+            document.querySelectorAll("h3")[i].style.display = "none";
+        }
+        document.querySelector("h1").textContent = "Game Over! You Win!";
     }
-    if (playerScore > computerScore) {
-        return "You Win " + playerScore + " to " + computerScore 
+    if (computerScore >= 5) {
+        for (let i = 0; i < document.querySelectorAll("button").length; i++) {
+            document.querySelectorAll("button")[i].style.display = "none";
+        }
+        document.querySelector("#reset").style.display = "block";
+        for (let i = 0; i < document.querySelectorAll("h3").length; i++) {
+            document.querySelectorAll("h3")[i].style.display = "none";
+        }
+        document.querySelector("h1").textContent = "Game Over! You Lose!";
     }
-    return "You Lose " + computerScore + " to " + plyerScore 
 }
+
+document.querySelector("#rock").addEventListener("click", function(e) {
+    game(e)
+});
+
+document.querySelector("#paper").addEventListener("click", function(e) {
+    game(e)
+});
+
+document.querySelector("#scissors").addEventListener("click", function(e) {
+    game(e)
+});
+
+document.querySelector("#reset").addEventListener("click", function(e) {
+    round = 1;
+    playerScore = 0;
+    computerScore = 0;
+    document.querySelector("#round").textContent = "Round " + round;
+    document.querySelector("#score").textContent = playerScore + " - " + computerScore;
+    for (let i = 0; i < document.querySelectorAll("button").length; i++) {
+        document.querySelectorAll("button")[i].style.display = "inline-block";
+    }
+    for (let i = 0; i < document.querySelectorAll("h3").length; i++) {
+        document.querySelectorAll("h3")[i].style.display = "block";
+    }
+    document.querySelector("h1").textContent = "Rock Paper Scissors";
+    document.querySelector("#result").textContent = "Rock Paper Scissors";
+});
 
 function playRound(playerSelection, computerSelection) {
     playerSelection.toLowerCase;
+    round++;
 
     if (playerSelection === "rock" && computerSelection === "scissors") {
         result = "win"
@@ -63,4 +107,4 @@ function playRound(playerSelection, computerSelection) {
   }
   
   
-  console.log(game());
+//   console.log(game());
