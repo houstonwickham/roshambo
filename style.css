@@ -23,3 +23,10 @@ button:active {
     background-color: #ffffff;
     color:#a32b29
 }
+
+@media only screen and (max-width: 780px) {
+    #button-container {
+        display: flex;
+        flex-direction: column;
+    }
+}
