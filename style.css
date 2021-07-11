@@ -1,18 +1,56 @@
-body {
-    font-family: Oswald;
+html {
+	height: 100%;
+    background-image: url('images/background.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-color: #ffffff;
 }
+
+body {
+	border: 0;
+	margin: 0;
+	height: 100%;
+	font-family: rig-solid-bold-halftone, serif;
+	font-weight: 700;
+}
+
+h1 {
+    font-size: 85px;
+    margin: 0;
+    padding: 10px;
+    text-align: center;
+}
+
+h3 {
+    font-size: 34px;
+    margin: 0;
+    padding: 10px;
+    text-align: center;
+}
+
+@media screen and (max-width: 800px) {
+    h1 {
+        font-size: 65px;
+    }
+    h3 {
+        font-size: 24px;
+    }
+}
+
 .container {
     display: flex;
     align-items: center;
     flex-direction: column;
 }
 button {
-    border: none;
-    color: #ffffff;
-    background-color: #a32b29;
+    border: 1px solid #000000;
+    color: #000000;
+    background:rgba(255,255,255, 0.7);
     height: 60px;
     width: 200px;
     border-radius: 30px;
+    font-family: rig-solid-bold-halftone, serif;
+	font-weight: 700;
     font-size: 22px;
     margin: 20px;
     font-weight: 600;
