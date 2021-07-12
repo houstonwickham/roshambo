@@ -1,3 +1,4 @@
+// make computer selection at random
 function computerPlay() {
     const random = Math.floor(Math.random() * 3) + 1;
     if (random === 1) {
@@ -11,7 +12,8 @@ let result;
 let round = 1;
 let playerScore = 0;
 let computerScore = 0;
-
+let img = document.createElement('img');
+// scorekeeper
 function game(e) {
     let computerSelection = computerPlay();
     document.querySelector("#result").textContent = playRound(e.target.id, computerSelection);
@@ -31,6 +33,8 @@ function game(e) {
             document.querySelectorAll("h3")[i].style.display = "none";
         }
         document.querySelector("h1").textContent = "Game Over! You Win!";
+        document.querySelector(".container").appendChild(img);
+        img.src = "images/winner.webp";
     }
     if (computerScore >= 5) {
         for (let i = 0; i < document.querySelectorAll("button").length; i++) {
@@ -41,9 +45,11 @@ function game(e) {
             document.querySelectorAll("h3")[i].style.display = "none";
         }
         document.querySelector("h1").textContent = "Game Over! You Lose!";
+        document.querySelector(".container").appendChild(img);
+        img.src = "images/loser.gif";
     }
 }
-
+// buttons
 document.querySelector("#rock").addEventListener("click", function(e) {
     game(e)
 });
@@ -55,7 +61,7 @@ document.querySelector("#paper").addEventListener("click", function(e) {
 document.querySelector("#scissors").addEventListener("click", function(e) {
     game(e)
 });
-
+// reset button
 document.querySelector("#reset").addEventListener("click", function(e) {
     round = 1;
     playerScore = 0;
@@ -70,8 +76,9 @@ document.querySelector("#reset").addEventListener("click", function(e) {
     }
     document.querySelector("h1").textContent = "Rock Paper Scissors";
     document.querySelector("#result").textContent = "Rock Paper Scissors";
+    document.querySelector('img').remove();
 });
-
+// play a round and return winner
 function playRound(playerSelection, computerSelection) {
     playerSelection.toLowerCase;
     round++;

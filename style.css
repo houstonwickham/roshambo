@@ -1,12 +1,12 @@
 html {
 	height: 100%;
+}
+
+body {
     background-image: url('images/background.jpg');
     background-size: cover;
     background-attachment: fixed;
     background-color: #ffffff;
-}
-
-body {
 	border: 0;
 	margin: 0;
 	height: 100%;
@@ -28,12 +28,24 @@ h3 {
     text-align: center;
 }
 
+@media screen and (max-width: 1000px) {
+    h1 {
+        font-size: 75px;
+    }
+    h3 {
+        font-size: 28px;
+    }
+}
+
 @media screen and (max-width: 800px) {
     h1 {
         font-size: 65px;
     }
     h3 {
         font-size: 24px;
+    }
+    body {
+        background-image: url('images/background-mobile.jpg');
     }
 }
 
@@ -45,7 +57,7 @@ h3 {
 button {
     border: 1px solid #000000;
     color: #000000;
-    background:rgba(255,255,255, 0.7);
+    background:rgba(255,255,255, 0.6);
     height: 60px;
     width: 200px;
     border-radius: 30px;
@@ -67,4 +79,10 @@ button:active {
         display: flex;
         flex-direction: column;
     }
+}
+
+img {
+    max-width:300px;
+    border-radius: 10px;
+    margin: 20px;
 }
