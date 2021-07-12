@@ -5,7 +5,7 @@ html {
 body {
     background-image: url('images/background.jpg');
     background-size: cover;
-    background-attachment: fixed;
+    /* background-attachment: fixed; */
     background-color: #ffffff;
 	border: 0;
 	margin: 0;
@@ -45,7 +45,7 @@ h3 {
         font-size: 24px;
     }
     body {
-        background-image: url('images/background-mobile.jpg');
+        background-image: url('images/background-mobile.jpg') !important;
     }
 }
 
